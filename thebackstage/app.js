@@ -6,11 +6,15 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash    = require('connect-flash');
 const bodyParser   = require('body-parser');
-const session      = require('express-session');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const expressLayouts = require('express-ejs-layouts');
 
+const session      = require('express-session');
+
+
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 
 const app = express();
@@ -43,8 +47,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
+app.use('/', usersRouter);
+app.use('/', authRouter);
 
 
 // catch 404 and forward to error handler
