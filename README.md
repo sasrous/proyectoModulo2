@@ -57,5 +57,5 @@
 
 # Links
 -	Trello: https://trello.com/b/vDpAnHdN/the-backstage
--	Git: https://github.com/sasrous/theBackstage
+-	Git: https://github.com/sasrous/proyectoModulo2
 -	Slides.com
