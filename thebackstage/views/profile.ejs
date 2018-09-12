@@ -10,13 +10,15 @@
       <!-- LOCAL INFORMATION -->
       <div class="col-sm-6">
           <div class="well">
-              <h3>Local</h3>
+              <h3>Welcome <%= user.profile.username %></h3>
 
                   <p>
+                      <strong>username</strong>: <%= user.profile.username%><br>
+                      <strong>about</strong>: <%= user.profile.about%><br>
                       <strong>id</strong>: <%= user._id%><br>
                       <strong>email</strong>: <%= user.local.email %><br>
-                      <strong>password</strong>: * * * *<br>
-
+                      <strong>password</strong>: * * * *<br><br>
+                      <a href="/profile/form" class="btn btn-default btn-sm">Edit</a>
                   </p>
 
           </div>
@@ -24,4 +26,17 @@
 
   </div>
 
+    <h3>Your Events</h3><br>
+    <%= user.profile.events %>
+
+   <% if (user.profile.events.length == 0) { %>
+      <div class="alert alert-danger"> 
+          You are yet to join an event; Go check some cool events near you 
+          <a href="/" class="btn btn-default btn-sm">Lobby</a> 
+      </div>
+   <% } %>
+  </div>
+
 </div>
+
+<div>

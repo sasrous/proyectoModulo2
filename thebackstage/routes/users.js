@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 const multer = require('multer');
+var User = require('../models/user');
 
 const multerConfig = {
 
@@ -47,15 +48,30 @@ router.get('/profile/form', isLoggedIn, (req, res, next) => {
   res.render('profileform', { user : req.user // get the user out of session and pass to template
   });
 });
-router.post('/profile/form/submit', multer(multerConfig).single('photo'),function(req, res){
-  //Here is where I could add functions to then get the url of the new photo
-  //And relocate that to a cloud storage solution with a callback containing its new url
-  //then ideally loading that into your database solution.   Use case - user uploading an avatar...
-  res.send('Complete! Check out your public/photo-storage folder.  Please note that files not encoded with an image mimetype are rejected. <a href="index.html">try again</a>');
-}
+router.post('/profile/form/submit', isLoggedIn,  multer(multerConfig).single('photo'),function(req, res, next){
 
-);
+      User.findById(req.user.id, function (err, user) {
 
+      var username = req.body.username;
+      var about = req.body.about;
+      var photo = req.body.photo;
+      var address = req.body.address;
+
+
+
+      user.profile.username = username;
+      user.profile.about = about;
+      user.profile.photo = photo;
+      user.profile.address = address;
+
+      user.save(function (err) {
+
+
+        res.redirect('/profile/');
+
+          });
+        });
+      });
 router.get('/logout', (req, res) => {
 req.logout();
 res.redirect('/');
