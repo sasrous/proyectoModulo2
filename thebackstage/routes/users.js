@@ -5,9 +5,14 @@ const passport = require('passport')
 
 // PROFILE FORM SECTION =
 router.get('/profile/form', isLoggedIn, (req, res, next) => {
-  res.render('profile/profileform', { user : req.user // get the user out of session and pass to template
+  res.render('profileform', { user : req.user // get the user out of session and pass to template
   });
 });
+router.put('/profile/form',(req, res, next) => {
+
+  
+});
+
 router.get('/logout', (req, res) => {
 req.logout();
 res.redirect('/');
@@ -29,7 +34,7 @@ res.redirect('/');
 
 // PROFILE SECTION =
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  res.render('profile/profile', { user : req.user // get the user out of session and pass to template
+  res.render('profile', { user : req.user // get the user out of session and pass to template
   });
 });
 router.get('/logout', (req, res) => {

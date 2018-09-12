@@ -18,6 +18,8 @@ var userSchema = new Schema({
       username     : String,
       about        : String,
       events       : Array,
+      img: 
+        { data: Buffer, contentType: String }
   },
 
 });
