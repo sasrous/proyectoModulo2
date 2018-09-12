@@ -14,4 +14,3 @@ var geocoder = new MapboxGeocoder({
 
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-console.log(geocoder.on('result'))

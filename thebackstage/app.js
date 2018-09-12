@@ -7,6 +7,7 @@ const passport = require('passport');
 const flash    = require('connect-flash');
 const bodyParser   = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
+const multer = require('multer'); // file storing middleware
 
 const session      = require('express-session');
 
@@ -71,4 +72,7 @@ app.use(function(req, res, next) {
 
 
 
+
+
+  
 module.exports = app;

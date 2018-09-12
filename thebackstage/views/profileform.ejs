@@ -3,7 +3,8 @@
 
 <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
-        <form action="/profile/form" method="post">
+        <form action="/profile/form/submit" enctype="multipart/form-data" method="POST">
+
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" name="username">
@@ -14,19 +15,19 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Profile picture</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profilepicture">
+                <input type="file" class="form-control-file" id="photo" name="photo">
             </div>
             <label for="exampleFormControlFile1">Address</label>
             <div id='geocoder' class='geocoder'></div> <br>
             <div id="map2" style='width: 400px; height: 300px;'></div><br>
 
 
+            <button type="submit" class="btn btn-warning btn-lg">Submit</button>
         </form>
 
 
      
 
-  <button type="submit" class="btn btn-warning btn-lg">Submit</button>
 
     </div>
 </div>
