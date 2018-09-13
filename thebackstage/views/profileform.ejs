@@ -11,16 +11,24 @@
             </div>
             <div class="form-group">
                 <label>About me</label>
-                <textarea class="form-control" id="about" rows="5" name="about"></textarea>
+                <textarea class="form-control" id="about" name="about" rows="5" ></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Profile picture</label>
                 <input type="file" class="form-control-file" id="photo" name="photo">
             </div>
-            <label for="exampleFormControlFile1">Address</label>
-            <div id='geocoder' class='geocoder'></div> <br>
-            <div id="map2" style='width: 400px; height: 300px;'></div><br>
+            <label for="exampleFormControlFile1">LOCATION</label>
+            
 
+
+            <div id='geocoder' class='geocoder'></div> <br>
+            <div id="map2" style='width: 550px; height: 300px;'></div><br>
+            <label>Address</label>
+            <textarea type="text" class="form-control" id = "search" name="address" ></textarea><br>
+            <label>Region</label>
+            <textarea type="text" class="form-control" id= "region" name="region" ></textarea><br>
+            <label>Country</label>
+            <textarea type="text" class="form-control" id= "country" name="country" ></textarea><br>
 
             <button type="submit" class="btn btn-warning btn-lg">Submit</button>
         </form>

@@ -16,7 +16,7 @@ const session      = require('express-session');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-
+const lobbyRouter = require('./routes/lobby');
 
 const app = express();
 
@@ -50,7 +50,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', authRouter);
-
+app.use('/', lobbyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -19,7 +19,10 @@ var userSchema = new Schema({
       about        : String,
       events       : Array,
       photo: 
-        { data: Buffer, contentType: String }
+        { data: Buffer, contentType: String },
+      address: String,
+      region: String,
+      country: String,
   },
 
 });

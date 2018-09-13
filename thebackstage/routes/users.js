@@ -14,13 +14,13 @@ const multerConfig = {
       next(null, './public/photo-storage');
     },
 
-    //specify the filename to be unique
+    //should fix it and specify the filename to be unique (user id )
     filename: function(req, file, next){
       console.log(file);
       //get the file mimetype ie 'image/jpeg' split and prefer the second value ie'jpeg'
       const ext = file.mimetype.split('/')[1];
-      //set the file fieldname to a unique name containing the original name, current datetime and the extension.
-      next(null, file.fieldname + '-' + Date.now() + '.'+ext);
+      
+      next(null, "profilepic" + '.'+ext);
     }
   }),
 
@@ -37,7 +37,7 @@ const multerConfig = {
         next(null, true);
       }else{
         console.log("file not supported")
-        //TODO:  A better message response to user on failure.
+       
         return next();
       }
   }
@@ -52,18 +52,29 @@ router.post('/profile/form/submit', isLoggedIn,  multer(multerConfig).single('ph
 
       User.findById(req.user.id, function (err, user) {
 
+      if (req.body.username.length > 0) {
       var username = req.body.username;
+      user.profile.username = username;}
+      if (req.body.about.length > 0){
       var about = req.body.about;
+      user.profile.about = about;}
+      
       var photo = req.body.photo;
+
+      if (req.body.address.length > 0) {
       var address = req.body.address;
-
-
-
-      user.profile.username = username;
-      user.profile.about = about;
+      user.profile.address = address;}
+      if (req.body.region.length > 0) {
+      var region = req.body.region;
+      user.profile.region = region;}
+      if (req.body.country.length >0) {
+      var country = req.body.country;
+      user.profile.country = country;}
+     
+      
       user.profile.photo = photo;
-      user.profile.address = address;
-
+      
+      
       user.save(function (err) {
 
 
