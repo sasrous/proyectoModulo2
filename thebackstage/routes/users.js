@@ -78,7 +78,7 @@ router.post('/profile/form/submit', isLoggedIn,  multer(multerConfig).single('ph
       user.save(function (err) {
 
 
-        res.redirect('/profile/');
+        res.redirect('/profile');
 
           });
         });

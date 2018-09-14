@@ -1,46 +1,32 @@
-<div class="container">
-
-  <div class="page-header text-center">
-      <h1>Profile Page</h1>
-      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-  </div>
-
-  <div class="row">
-
-      <!-- LOCAL INFORMATION -->
-      <div class="col-sm-6">
-          <div class="well">
-              <img src= "/photo-storage/profilepic.png" height="320" width="320">
-              <h3>Welcome <%= user.profile.username %></h3>
-
-                  <p>
-                      <strong>username</strong>: <%= user.profile.username%><br>
-                      <strong>about</strong>: <%= user.profile.about%><br>
-                      <strong>id</strong>: <%= user._id%><br>
-                      <strong>email</strong>: <%= user.local.email %><br>
-                      <strong>password</strong>: * * * *<br><br>
-                      <strong>country</strong>: <%= user.profile.country %><br>
-                      <strong>region</strong>: <%= user.profile.region %><br>
-                      <strong>location</strong>: <%= user.profile.address %><br><br>
-                      <a href="/profile/form" class="btn btn-default btn-sm">Edit</a>
-                  </p>
-
+<div class=general-wrapper>
+        <div class="top-image"> 
+                <video autoplay muted loop id="myVideo" style="height: 250px; width: 100%; object-fit: fill; margin-bottom: -5px; opacity: 0.5;">
+                        <source src="images/MOSHED-2018-9-14-15-0-11.mp4" type="video/mp4">
+                </video>
+                
+        </div>
+        <div class="profile-wrapper">
+          <div class="profile-pic" >
+                <img src= "/photo-storage/profilepic.png" height="320" width="320" >
           </div>
+          <div class="info-container">
+                <h3 > <small style="font-size: 30px; color: rgb(190, 50, 97)">My profile</small> </h3>
+                
+  
+                <p style="font-size: 15px;">
+                    <strong>username</strong>: <%= user.profile.username%><br>
+                    <strong>about</strong>: <%= user.profile.about%><br>
+                    <strong>id</strong>: <%= user._id%><br>
+                    <strong>email</strong>: <%= user.local.email %><br>
+                    <strong>password</strong>: * * * *<br><br>
+                    <strong>country</strong>: <%= user.profile.country %><br>
+                    <strong>region</strong>: <%= user.profile.region %><br>
+                    <strong>location</strong>: <%= user.profile.address %><br><br>
+                    <a href="/profile/form" class="btn btn-default btn-sm" style="padding-left: 35px; padding-right: 35px; font-size: 15px">Edit</a>
+                </p>
+          </div>
+        </div>
+        <div class="event-wrapper"></div>
+      
       </div>
 
-  </div>
-
-    <h3>Your Events</h3><br>
-    <%= user.profile.events %>
-
-   <% if (user.profile.events.length == 0) { %>
-      <div class="alert alert-danger"> 
-          You are yet to join an event; Go check some cool events near you 
-          <a href="/lobby" class="btn btn-default btn-sm">Lobby</a> 
-      </div>
-   <% } %>
-  </div>
-
-</div>
-
-<div>
