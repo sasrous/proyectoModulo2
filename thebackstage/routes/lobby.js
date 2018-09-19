@@ -14,11 +14,13 @@ function isLoggedIn(req, res, next) {
   res.redirect('/');
   };
   //}
-  
+
 
 router.get('/lobby', isLoggedIn, (req, res, next) => {
   res.render('lobby', { user : req.user // get the user out of session and pass to template
+    
   });
+  
 });
 
 

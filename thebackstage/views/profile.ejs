@@ -14,19 +14,36 @@
                 
   
                 <p style="font-size: 15px;">
-                    <strong>username</strong>: <%= user.profile.username%><br>
-                    <strong>about</strong>: <%= user.profile.about%><br>
+                    
                     <strong>id</strong>: <%= user._id%><br>
                     <strong>email</strong>: <%= user.local.email %><br>
-                    <strong>password</strong>: * * * *<br><br>
+                    <strong>password</strong>: * * * *<br>
+                    <strong>username</strong>: <%= user.profile.username%><br>
                     <strong>country</strong>: <%= user.profile.country %><br>
                     <strong>region</strong>: <%= user.profile.region %><br>
-                    <strong>location</strong>: <%= user.profile.address %><br><br>
+                    <strong>location</strong>: <%= user.profile.address %><br>
+                    <strong>metro area</strong> <p id="metroAreaId" ></p><br>
                     <a href="/profile/form" class="btn btn-default btn-sm" style="padding-left: 35px; padding-right: 35px; font-size: 15px">Edit</a>
                 </p>
           </div>
         </div>
-        <div class="event-wrapper"></div>
+        <div class= "nav-wrapper">
+                <a style = " padding-left: 20px; padding-right: 20px; margin: 5px; width: 100px" href="/logout" class="btn btn-default btn-sm">Logout</a><br>
+                <a style = " padding-left: 20px; padding-right: 20px; margin: 5px; width: 100px"href="/" class="btn btn-default btn-sm">Home</a><br>
+                <a style = " padding-left: 20px; padding-right: 20px; margin: 5px; width: 100px"href="/lobby" class="btn btn-default btn-sm">Lobby</a><br>
+
+        </div>
+        <div class="event-wrapper">
+                <h3>My Events</h3><br>
+                <%= user.profile.events %>
+            
+               <% if (user.profile.events.length == 0) { %>
+                  <div class="alert alert-danger"> 
+                      You are yet to join an event; Go check some cool events near you 
+                      <a href="/lobby" class="btn btn-default btn-sm">Lobby</a> 
+                  </div>
+               <% } %>
+        </div>
       
       </div>
 

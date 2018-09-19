@@ -1,4 +1,4 @@
-
+if (document.getElementById('map2')){
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fzcm91cyIsImEiOiJjamthMWVlYjMwaGR5M3F0NHZpMGhrOGM2In0.AnhPlCGlJIovaEzHuWr59Q';
 var map = new mapboxgl.Map({
@@ -53,3 +53,4 @@ map.on('load', function() {
         
     });
 });
+}

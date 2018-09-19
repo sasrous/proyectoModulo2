@@ -46,12 +46,14 @@ const multerConfig = {
 // PROFILE FORM SECTION =
 router.get('/profile/form', isLoggedIn, (req, res, next) => {
   res.render('profileform', { user : req.user // get the user out of session and pass to template
-  });
+  
+});
 });
 router.post('/profile/form/submit', isLoggedIn,  multer(multerConfig).single('photo'),function(req, res, next){
 
       User.findById(req.user.id, function (err, user) {
 
+      
       if (req.body.username.length > 0) {
       var username = req.body.username;
       user.profile.username = username;}

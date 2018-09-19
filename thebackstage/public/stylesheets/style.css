@@ -117,8 +117,8 @@ html {
   background-color: white;
   margin: 40px;
   top: 5%;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  width: 320px;
+ 
   
 }
 .profile-pic {
@@ -129,11 +129,23 @@ html {
   background-color: white;
   padding-top: 5px;
   padding-left: 30px;
+  padding-right: 30px;
   padding-bottom: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .event-wrapper {
   position: absolute;
   bottom: 30px;
   width: 100%;
+  padding: 50px;
+}
+
+.nav-wrapper {
+  margin-top: 40px;
+  position: absolute;
+  right: 30px;
+  top: 5%;
+  
 }
