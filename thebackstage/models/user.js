@@ -23,6 +23,7 @@ var userSchema = new Schema({
       address: String,
       region: String,
       country: String,
+      events: Array,
   },
 
 });

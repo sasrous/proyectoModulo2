@@ -24,6 +24,16 @@ router.get('/lobby', isLoggedIn, (req, res, next) => {
 });
 
 
+router.get('/lobby/event/:eventid', isLoggedIn, (req, res, next) => {
+  const  eventid  = req.params;
+  
+  res.render('details', {user : req.user, eventid : eventid
+  
+  });
+});
+
+
+
 
 module.exports = router;
 

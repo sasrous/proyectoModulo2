@@ -39,15 +39,21 @@ map.on('load', function() {
     // makes a selection and add a symbol that matches the result.
     geocoder.on('result', function(ev) {
         map.getSource('single-point').setData(ev.result.geometry);
-        console.log(ev.result.text);//search
-        document.getElementById("search").innerHTML = ev.result.text;
-        document.getElementById("region").innerHTML = ev.result.context[0].text;
-        document.getElementById("country").innerHTML = ev.result.context[1].text;
-        console.log(ev.result);
-        console.log(ev.result);
-        console.log(ev.result.context[0].text);//region
-   
-        console.log(ev.result.context[1].text);//country
+    
+        if (document.getElementById("search")){
+            document.getElementById("search").innerHTML = ev.result.text;
+            document.getElementById("region").innerHTML = ev.result.context[0].text;
+            document.getElementById("country").innerHTML = ev.result.context[1].text;
+        }
+
+        var search = ev.result.text
+        if (document.getElementsByClassName("eventWrapper")){
+            $(".eventWrapper").html("");
+            getMetroArea(search);
+        }
+        
+
+        
    
         
         

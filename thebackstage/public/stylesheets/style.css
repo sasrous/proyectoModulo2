@@ -149,3 +149,12 @@ html {
   top: 5%;
   
 }
+
+.lobbyWrapper {
+  margin-top: 40px;
+  margin-left: 18%;
+  margin-right: 18%;
+  padding: 5%;
+  background-color: rgb(58, 55, 55);
+  border-radius: 8px;
+}
