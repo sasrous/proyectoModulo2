@@ -17,14 +17,14 @@ var userSchema = new Schema({
   profile          : {
       username     : String,
       about        : String,
-      events       : Array,
       photo: 
         { data: Buffer, contentType: String },
       address: String,
       region: String,
       country: String,
-      events: Array,
+      
   },
+  events          : Array,
 
 });
 

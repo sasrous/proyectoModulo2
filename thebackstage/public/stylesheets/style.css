@@ -158,3 +158,41 @@ html {
   background-color: rgb(58, 55, 55);
   border-radius: 8px;
 }
+
+
+
+
+.map-overlay-container {
+  position: absolute;
+  width: 25%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 1;
+}
+
+.map-overlay {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  border-radius: 3px;
+  padding: 10px;
+  
+}
+
+.map-overlay h2,
+.map-overlay p {
+  color: black;
+  margin: 0 0 10px;
+}
+
+#map {
+  height: 200px;
+  width: 200px;
+}
+
+#displayName {
+  color: #00B7FF;
+}
+
+a.mapboxgl-ctrl-logo, ::after {
+  display: none
+}

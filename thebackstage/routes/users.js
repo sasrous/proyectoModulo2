@@ -85,6 +85,7 @@ router.post('/profile/form/submit', isLoggedIn,  multer(multerConfig).single('ph
           });
         });
       });
+      
 router.get('/logout', (req, res) => {
 req.logout();
 res.redirect('/');

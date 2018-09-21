@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const passport = require('passport');
+const multer = require('multer');
 var User = require('../models/user');
 
 
@@ -25,13 +27,45 @@ router.get('/lobby', isLoggedIn, (req, res, next) => {
 
 
 router.get('/lobby/event/:eventid', isLoggedIn, (req, res, next) => {
-  const  eventid  = req.params;
+  var  eventid  = req.params;
   
   res.render('details', {user : req.user, eventid : eventid
   
   });
 });
 
+
+
+
+router.post('/lobby/event/:eventid/submit', isLoggedIn, function(req, res, next) {
+  var  eventid  = req.params.eventid;
+  var event_id_int = parseInt(eventid) 
+  user_id = req.user.id
+
+  User.findById(req.user.id, function (err, user) {
+    for (i=0; i< req.user.events.length; i++ ){
+      
+      if (req.user.events[i] === event_id_int){
+        console.log("found")
+        return
+      }
+      else if ( i == req.user.events.length-1 ) {
+        User.findByIdAndUpdate(req.user.id, { $push: { events: event_id_int }}, { new: true })
+        .then(() => {
+        // lo que quieras hacer
+
+        console.log("donezo")
+        res.redirect(`/lobby/event/${parseInt(eventid)}`);
+        })
+      }
+    
+    }
+    })
+    
+  
+
+
+});
 
 
 
