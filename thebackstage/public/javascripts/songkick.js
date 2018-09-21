@@ -72,7 +72,7 @@ var event_id = document.getElementById("eventid").innerHTML;
     var displayName = response.data.resultsPage.results.event.displayName;
     document.getElementById("displayName").innerHTML = displayName
     var url = response.data.resultsPage.results.event.uri
-    $(".url").append(`<button class="url btn btn-default btn-sm" href="${url}"> BUY TICKETS </button>` )
+    $(".url").append(`<a class="url btn btn-default btn-sm" href="${url}"> BUY TICKETS </a>` )
     var artistsArray = response.data.resultsPage.results.event.performance
     if (artistsArray.length> 1){
     for (i=0; i< artistsArray.length; i++){
@@ -96,7 +96,7 @@ var event_id = document.getElementById("eventid").innerHTML;
     `)
     $(".join_btn").append(`
     <br><form action="/lobby/event/${event_id}/submit" enctype="multipart/form-data" method="POST">
-  <button type="submit" class="btn btn-warning btn-lg">JOIN</button>
+  <button type="submit" class="btn btn-warning btn-lg" onclick="toggleButton()" id="join_btn" >JOIN</button>
 </form>`)
    
 
@@ -249,4 +249,9 @@ $("#event-detail-wrapper1")
 
 
 
+}
+
+function toggleButton() {
+  // document.getElementById("join_btn") = '<button class="btn btn-warning btn-lg"  id="join_btn" > DONE </button>'
+$("#join_btn").replaceWith('<button class="btn btn-warning btn-lg" style="color : black"  id="join_btn" > DONE </button>')
 }
