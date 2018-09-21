@@ -97,13 +97,11 @@ html {
   margin-left: auto; 
   margin-right: auto;
   top: 0px;
-
   position: relative;
   width: 1000px;
-  height: 1000px;
+  height: 700px;
   background-color:rgba(255, 255, 255, 0.9);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+
 }
 
 .top-image {
@@ -136,10 +134,17 @@ html {
 }
 
 .event-wrapper {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
+
+  position: relative;
   padding: 50px;
+  width: 1000px;
+  height: 1000px;
+  margin-left: auto; 
+  margin-right: auto;
+
+  background-color:rgba(255, 255, 255, 0.9);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .nav-wrapper {
@@ -195,4 +200,12 @@ html {
 
 a.mapboxgl-ctrl-logo, ::after {
   display: none
+}
+
+.red {
+  color: rgb(190, 50, 97)
+}
+
+.black {
+  color: black;
 }

@@ -56,10 +56,7 @@ function sortApiData(data) {
       "<p class='place' > Place: "+place+" </p>" +
       "<a class='link' href='lobby/event/"+ id + "'> DETAILS </a>" 
 
-      
       + "</div>"
-
-
     
     );
 
@@ -170,7 +167,7 @@ var description = document.getElementById('location-description');
 //    // Check that we got results
 //    if (imageSearch.results && imageSearch.results.length > 0) {
 
-//      // Grab our content div, clear it.  
+//      // Grab our content div, clear it.
 //      var contentDiv = document.getElementById('content');
 //      contentDiv.innerHTML = '';
 
@@ -222,3 +219,34 @@ var description = document.getElementById('location-description');
 
 
 
+
+if (document.getElementById("event-wrapper-go")){
+  var id_array =  []
+  id_array.push(document.getElementById("event-detail-wrapper1").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper2").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper3").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper4").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper5").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper6").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper7").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper8").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper9").innerHTML)
+  id_array.push(document.getElementById("event-detail-wrapper10").innerHTML)
+  for (i=0; i<id_array.length; i++){
+    const num = parseInt(id_array[i])
+    axios.get(`https://api.songkick.com/api/3.0/events/${id_array[i]}.json?apikey=PxrJ1AnxJlC6uT7i`)
+   .then((response) => {
+     
+   $(".event-wrapper").append(`<a href="lobby/event/${num}"><h3 class="black">${response.data.resultsPage.results.event.displayName}</h3></a>
+    <h4 class='red'>${response.data.resultsPage.results.event.start.date}</h4>
+   
+    `)
+   })
+  }
+
+  
+$("#event-detail-wrapper1")
+
+
+
+}

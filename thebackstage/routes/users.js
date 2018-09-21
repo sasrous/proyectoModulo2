@@ -107,8 +107,12 @@ res.redirect('/');
 
 // PROFILE SECTION =
 router.get('/profile', isLoggedIn, (req, res, next) => {
+  for (i=0; i< req.user.events.length; i++){ 
+  }
   res.render('profile', { user : req.user // get the user out of session and pass to template
   });
+ 
+  
 });
 router.get('/logout', (req, res) => {
 req.logout();

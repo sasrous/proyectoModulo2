@@ -43,7 +43,8 @@ router.post('/lobby/event/:eventid/submit', isLoggedIn, function(req, res, next)
   user_id = req.user.id
 
   User.findById(req.user.id, function (err, user) {
-    for (i=0; i< req.user.events.length; i++ ){
+    if(req.user.events.length != 0) {
+    for (i=0 ; i < req.user.events.length; i++ ){
       
       if (req.user.events[i] === event_id_int){
         console.log("found")
@@ -59,6 +60,15 @@ router.post('/lobby/event/:eventid/submit', isLoggedIn, function(req, res, next)
         })
       }
     
+    }}
+    else { User.findByIdAndUpdate(req.user.id, { $push: { events: event_id_int }}, { new: true })
+    .then(() => {
+    // lo que quieras hacer
+
+    console.log("donezo2")
+    res.redirect(`/lobby/event/${parseInt(eventid)}`);
+    })
+
     }
     })
     

@@ -21,8 +21,8 @@
                     <strong>username</strong>: <%= user.profile.username%><br>
                     <strong>country</strong>: <%= user.profile.country %><br>
                     <strong>region</strong>: <%= user.profile.region %><br>
-                    <strong>location</strong>: <%= user.profile.address %><br>
-                    <strong>metro area</strong> <p id="metroAreaId" ></p><br>
+                    <strong>location</strong>: <%= user.profile.address %><br><br>
+                    
                     <a href="/profile/form" class="btn btn-default btn-sm" style="padding-left: 35px; padding-right: 35px; font-size: 15px">Edit</a>
                 </p>
           </div>
@@ -33,9 +33,26 @@
                 <a style = " padding-left: 20px; padding-right: 20px; margin: 5px; width: 100px"href="/lobby" class="btn btn-default btn-sm">Lobby</a><br>
 
         </div>
-        <div class="event-wrapper">
-                <h3>My Events</h3><br>
-                <%= user.events %>
+      
+      </div>
+      <div class="event-wrapper" id="event-wrapper-go">
+                <h1>My Calendar</h1><br>
+                <div class="detailed" style="display: none;">
+                <div id="event-detail-wrapper1"> <%= user.events[0] %> </div>
+                <div id="event-detail-wrapper2"> <%= user.events[1] %> </div>
+                <div id="event-detail-wrapper3"> <%= user.events[2] %> </div>
+                <div id="event-detail-wrapper4"> <%= user.events[3] %> </div>
+                <div id="event-detail-wrapper5"> <%= user.events[4] %> </div>
+                <div id="event-detail-wrapper6"> <%= user.events[5] %> </div>
+                <div id="event-detail-wrapper7"> <%= user.events[6] %> </div>
+                <div id="event-detail-wrapper8"> <%= user.events[7] %> </div>
+                <div id="event-detail-wrapper9"> <%= user.events[9] %> </div>
+                <div id="event-detail-wrapper10"> <%= user.events[10] %> </div>
+            
+                </div>
+               
+                
+             
             
                <% if (user.events.length == 0) { %>
                   <div class="alert alert-danger"> 
@@ -44,6 +61,4 @@
                   </div>
                <% } %>
         </div>
-      
-      </div>
 
