@@ -56,6 +56,6 @@
 -	Users attending : array list of id’s
 
 # Links
--	Trello: https://trello.com/b/vDpAnHdN/the-backstage
+-	Trello: https://trello.com/b/RnmDlMGE/the-backstage-2
 -	Git: https://github.com/sasrous/proyectoModulo2
 -	Slides.com
